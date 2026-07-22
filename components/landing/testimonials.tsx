@@ -15,7 +15,7 @@ import { Reveal } from "@/components/landing/reveal"
 const quotes = [
   {
     quote:
-      "We stopped living in our inboxes. The pilot paid for itself in week three—our office manager finally had time for vendor negotiations.",
+      "Missed calls used to mean lost jobs. Now the AI texts back in seconds, qualifies the lead, and books the appointment before they call our competitor.",
     name: "Jordan Lee",
     role: "Owner",
     company: "Harborline Supply Co.",
@@ -24,7 +24,7 @@ const quotes = [
   },
   {
     quote:
-      "I was skeptical about ‘AI consultants.’ This was different: concrete workflows, clear limits on what automation should touch, and training my staff could follow.",
+      "Our CRM finally matches reality. Follow‑ups log themselves, the pipeline stays clean, and the team spends time on customers—not data entry.",
     name: "Priya Desai",
     role: "Operations Director",
     company: "Brightfield Clinics",
@@ -33,7 +33,7 @@ const quotes = [
   },
   {
     quote:
-      "Our weekly revenue snapshot used to be a Friday fire drill. Now it is one email everyone trusts—and we catch issues on Monday instead of month‑end.",
+      "After‑hours chat and calls used to pile up. The voice and chat agents cover us around the clock—we wake up to booked conversations, not voicemails.",
     name: "Marcus Nguyen",
     role: "GM",
     company: "Northwind Logistics",

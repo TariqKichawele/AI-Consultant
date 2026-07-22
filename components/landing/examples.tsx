@@ -11,28 +11,28 @@ import { Reveal } from "@/components/landing/reveal"
 
 const examples = [
   {
-    title: "Quote requests → structured intake + draft reply",
+    title: "Missed call → SMS recovery in seconds",
     before:
-      "Leads email vague asks; someone retypes the same questions and misses follow‑ups.",
+      "A lead rings, nobody picks up, and they call the next business on the list.",
     after:
-      "A guided intake captures scope, timeline, and budget; your team gets a ready‑to‑edit reply and a CRM task.",
-    tag: "Sales",
+      "AI texts back in about 2 seconds, qualifies the lead, and books the appointment by SMS before they move on.",
+    tag: "Missed Call Recovery",
   },
   {
-    title: "Weekly KPIs → one email from scattered sheets",
+    title: "After‑hours calls & chat → always covered",
     before:
-      "Managers chase numbers across tabs; the “real” version lives in someone’s inbox.",
+      "Phones and website chat go quiet when the team is busy or closed—opportunities pile up unanswered.",
     after:
-      "Scheduled roll‑up pulls agreed sources, flags anomalies, and lands in leadership’s inbox every Monday.",
-    tag: "Reporting",
+      "AI voice and chat agents handle calls and web chat around the clock, capture intent, and hand off warm leads.",
+    tag: "AI Voice and Chat Agents",
   },
   {
-    title: "Scheduling ping‑pong → fewer threads",
+    title: "Scattered lead notes → clean CRM pipeline",
     before:
-      "Twelve messages to book a 20‑minute call; no‑shows when confirmations slip.",
+      "Follow‑ups live in inboxes and sticky notes; deals stall because the CRM never matches reality.",
     after:
-      "Assistant suggests slots from your rules, sends confirmations, and reschedules without losing context.",
-    tag: "Operations",
+      "CRM automation logs activity, nudges next steps, and keeps records honest so your team always knows who to call.",
+    tag: "CRM Automation",
   },
 ] as const
 

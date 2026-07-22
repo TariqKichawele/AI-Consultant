@@ -16,7 +16,7 @@ export function ThemeToggle() {
     () => false
   )
 
-  const isDark = resolvedTheme === "dark"
+  const isDark = mounted && resolvedTheme === "dark"
 
   return (
     <Button
@@ -24,7 +24,13 @@ export function ThemeToggle() {
       variant="ghost"
       size="icon"
       className="shrink-0"
-      aria-label={isDark ? "Switch to light theme" : "Switch to dark theme"}
+      aria-label={
+        !mounted
+          ? "Toggle theme"
+          : isDark
+            ? "Switch to light theme"
+            : "Switch to dark theme"
+      }
       disabled={!mounted}
       onClick={() => setTheme(isDark ? "light" : "dark")}
     >

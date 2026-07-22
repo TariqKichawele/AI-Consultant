@@ -1,5 +1,6 @@
 "use client"
 
+import Image from "next/image"
 import { MenuIcon } from "lucide-react"
 
 import { Button, buttonVariants } from "@/components/ui/button"
@@ -37,9 +38,17 @@ export function SiteHeader() {
       <div className="mx-auto flex h-14 max-w-6xl items-center justify-between gap-4 px-4 sm:h-16 sm:px-6 lg:px-8">
         <a
           href="#top"
-          className="text-sm font-semibold tracking-tight text-foreground sm:text-base"
+          className="flex items-center gap-2.5 text-sm font-semibold tracking-tight text-foreground sm:text-base"
         >
-          {SITE_NAME}
+          <Image
+            src="/brand/logo.png"
+            alt=""
+            width={36}
+            height={36}
+            className="size-8 rounded-lg sm:size-9"
+            priority
+          />
+          <span>{SITE_NAME}</span>
         </a>
 
         <nav

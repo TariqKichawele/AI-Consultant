@@ -1,3 +1,5 @@
+import Image from "next/image"
+
 import { Separator } from "@/components/ui/separator"
 import { CONTACT_EMAIL, SITE_NAME } from "@/lib/constants"
 import { NAV_LINKS } from "@/lib/nav"
@@ -8,10 +10,19 @@ export function SiteFooter() {
       <div className="mx-auto max-w-6xl px-4 sm:px-6 lg:px-8">
         <div className="flex flex-col gap-10 md:flex-row md:items-start md:justify-between">
           <div className="max-w-sm">
-            <p className="text-sm font-semibold text-foreground">{SITE_NAME}</p>
+            <div className="flex items-center gap-2.5">
+              <Image
+                src="/brand/logo.png"
+                alt=""
+                width={36}
+                height={36}
+                className="size-9 rounded-lg"
+              />
+              <p className="text-sm font-semibold text-foreground">{SITE_NAME}</p>
+            </div>
             <p className="mt-2 text-sm leading-relaxed text-muted-foreground">
-              Practical AI consulting for small businesses—workflow design,
-              pilots, and training your team can actually use.
+              CRM automation, websites and apps, AI voice and chat agents, and
+              missed‑call recovery—built so small businesses never miss a lead.
             </p>
           </div>
           <nav

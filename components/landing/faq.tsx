@@ -21,7 +21,7 @@ const faqs = [
   },
   {
     q: "What if we already tried ChatGPT and it fizzled?",
-    a: "Ad-hoc prompts rarely change operations. We build repeatable workflows with owners, metrics, and fallbacks—so the win survives after the first demo.",
+    a: "Ad-hoc prompts rarely change operations. We build repeatable systems—CRM automation, voice and chat agents, missed‑call recovery, and sites that convert—with owners, metrics, and fallbacks so the win survives after the first demo.",
   },
 ] as const
 

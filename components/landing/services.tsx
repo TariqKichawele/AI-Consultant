@@ -1,13 +1,12 @@
 import {
-  BarChart3Icon,
-  InboxIcon,
-  MessageSquareIcon,
-  UsersIcon,
+  LayoutTemplateIcon,
+  MessageCircleIcon,
+  PhoneMissedIcon,
+  WorkflowIcon,
 } from "lucide-react"
 
 import {
   Card,
-  CardContent,
   CardDescription,
   CardHeader,
   CardTitle,
@@ -16,28 +15,28 @@ import { Reveal } from "@/components/landing/reveal"
 
 const items = [
   {
-    title: "Operations & admin",
+    title: "CRM Automation",
     description:
-      "Turn recurring internal tasks into reliable flows: intake forms, approvals, file routing, and reminders that run whether you are on the floor or in a meeting.",
-    icon: InboxIcon,
+      "Connect your CRM to the rest of your stack so leads, notes, and next steps update themselves. Automate logging, follow‑ups, and pipeline hygiene so your team sells instead of babysitting records.",
+    icon: WorkflowIcon,
   },
   {
-    title: "Customer communication",
+    title: "Website and App Design and Development",
     description:
-      "Draft faster, stay on‑brand, and never ghost a lead. AI assists with first responses, FAQs, and handoffs so your team spends time on relationships, not templates.",
-    icon: MessageSquareIcon,
+      "Launch a fast, conversion‑focused website or app that matches how you actually sell—clear offers, clean UX, and the forms, booking, and integrations your leads need to take the next step.",
+    icon: LayoutTemplateIcon,
   },
   {
-    title: "Sales & CRM hygiene",
+    title: "AI Voice and Chat Agents",
     description:
-      "Keep pipelines honest with automated logging, next‑step nudges, and clean data entry from emails and calls—so forecasts reflect reality.",
-    icon: UsersIcon,
+      "AI handles calls and web chat around the clock so no opportunity goes unanswered.",
+    icon: MessageCircleIcon,
   },
   {
-    title: "Reporting & visibility",
+    title: "Missed Call Recovery",
     description:
-      "Pull numbers from scattered spreadsheets and tools into one weekly snapshot your whole team can trust—without another late‑night copy‑paste session.",
-    icon: BarChart3Icon,
+      "Miss a call and the AI texts back in 2 seconds, qualifies the lead and books the appointment by SMS before they call someone else.",
+    icon: PhoneMissedIcon,
   },
 ] as const
 
@@ -49,7 +48,7 @@ export function Services() {
     >
       <div className="mx-auto max-w-6xl px-4 sm:px-6 lg:px-8">
         <Reveal className="mx-auto max-w-2xl text-center">
-          <p className="text-sm font-medium text-primary">Outcomes first</p>
+          <p className="text-sm font-medium text-primary">What we build</p>
           <h2 className="mt-2 text-3xl font-semibold tracking-tight text-foreground sm:text-4xl">
             Where small teams win back time
           </h2>
@@ -73,10 +72,6 @@ export function Services() {
                     {item.description}
                   </CardDescription>
                 </CardHeader>
-                <CardContent className="text-sm text-muted-foreground">
-                  Typical starting point: map the workflow, pick one pilot, then
-                  iterate with your team in the loop.
-                </CardContent>
               </Card>
             </Reveal>
           ))}

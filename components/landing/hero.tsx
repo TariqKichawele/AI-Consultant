@@ -102,10 +102,10 @@ export function Hero() {
             }}
             transition={{ duration: 0.5, ease: [0.22, 1, 0.36, 1] }}
           >
-            Small businesses lose hours every week to inbox triage, scheduling
-            ping‑pong, copy‑paste reporting, and follow‑ups that slip. We design
-            practical AI workflows that save time, reduce errors, and scale
-            without forcing you to hire ahead of revenue.
+            Missed calls, messy CRMs, and sites that don’t convert cost you
+            revenue every week. We build CRM automation, websites and apps, AI
+            voice and chat agents, and missed‑call recovery so leads get answered
+            and booked—without hiring ahead of growth.
           </motion.p>
 
           <motion.div
@@ -153,9 +153,9 @@ export function Hero() {
             transition={{ duration: 0.4, delay: reduceMotion ? 0 : 0.15 }}
           >
             {[
-              "Teams of 1–50",
-              "Weeks to pilot, not months",
-              "Your tools (email, CRM, sheets)",
+              "CRM automation",
+              "Sites & apps that convert",
+              "24/7 voice & chat agents",
             ].map((label) => (
               <span
                 key={label}
