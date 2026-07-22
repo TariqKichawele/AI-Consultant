@@ -14,45 +14,74 @@ export function Hero() {
       id="top"
       className="relative overflow-hidden border-b border-border/60"
     >
-      <div
-        className="pointer-events-none absolute inset-0 opacity-40"
-        aria-hidden
-      >
-        <motion.div
-          className="absolute -left-1/4 top-0 size-112 rounded-full bg-primary/20 blur-3xl"
-          animate={
-            reduceMotion
-              ? undefined
-              : {
-                  x: [0, 24, 0],
-                  y: [0, 12, 0],
-                }
-          }
-          transition={{
-            duration: 14,
-            repeat: Infinity,
-            ease: "easeInOut",
+      <div className="pointer-events-none absolute inset-0" aria-hidden>
+        {/* Soft ops grid */}
+        <div
+          className="absolute inset-0 opacity-[0.45] dark:opacity-[0.35]"
+          style={{
+            backgroundImage: `
+              linear-gradient(to right, color-mix(in oklch, var(--foreground) 8%, transparent) 1px, transparent 1px),
+              linear-gradient(to bottom, color-mix(in oklch, var(--foreground) 8%, transparent) 1px, transparent 1px)
+            `,
+            backgroundSize: "56px 56px",
+            maskImage:
+              "radial-gradient(ellipse 75% 65% at 50% 40%, black 20%, transparent 75%)",
+            WebkitMaskImage:
+              "radial-gradient(ellipse 75% 65% at 50% 40%, black 20%, transparent 75%)",
           }}
         />
-        <motion.div
-          className="absolute -right-1/4 bottom-0 h-96 w-96 rounded-full bg-chart-2/25 blur-3xl"
-          animate={
-            reduceMotion
-              ? undefined
-              : {
-                  x: [0, -20, 0],
-                  y: [0, -16, 0],
-                }
-          }
-          transition={{
-            duration: 18,
-            repeat: Infinity,
-            ease: "easeInOut",
+
+        {/* Atmospheric mesh */}
+        <div className="absolute inset-0">
+          <motion.div
+            className="absolute -left-[20%] top-[-10%] size-[38rem] rounded-full bg-primary/25 blur-3xl dark:bg-primary/30"
+            animate={
+              reduceMotion
+                ? undefined
+                : {
+                    x: [0, 28, 0],
+                    y: [0, 16, 0],
+                  }
+            }
+            transition={{
+              duration: 16,
+              repeat: Infinity,
+              ease: "easeInOut",
+            }}
+          />
+          <motion.div
+            className="absolute -right-[15%] bottom-[-15%] size-[34rem] rounded-full bg-chart-2/30 blur-3xl dark:bg-chart-2/25"
+            animate={
+              reduceMotion
+                ? undefined
+                : {
+                    x: [0, -24, 0],
+                    y: [0, -18, 0],
+                  }
+            }
+            transition={{
+              duration: 20,
+              repeat: Infinity,
+              ease: "easeInOut",
+            }}
+          />
+          <div className="absolute left-1/2 top-[42%] size-[28rem] -translate-x-1/2 -translate-y-1/2 rounded-full bg-primary/10 blur-3xl dark:bg-primary/15" />
+        </div>
+
+        {/* Center spotlight behind copy */}
+        <div
+          className="absolute inset-0"
+          style={{
+            background:
+              "radial-gradient(ellipse 55% 50% at 50% 42%, color-mix(in oklch, var(--primary) 10%, transparent), transparent 70%)",
           }}
         />
+
+        {/* Edge fade so the grid doesn’t hard-cut */}
+        <div className="absolute inset-0 bg-linear-to-b from-background/40 via-transparent to-background/80" />
       </div>
 
-      <div className="relative mx-auto max-w-6xl px-4 py-20 sm:px-6 sm:py-28 lg:px-8 lg:py-32">
+      <div className="relative mx-auto flex max-w-6xl items-center px-4 py-20 sm:px-6 sm:py-28 lg:min-h-[70vh] lg:px-8 lg:py-40 xl:min-h-[75vh] xl:py-48">
         <motion.div
           className="mx-auto max-w-3xl text-center"
           initial="hidden"
@@ -102,10 +131,9 @@ export function Hero() {
             }}
             transition={{ duration: 0.5, ease: [0.22, 1, 0.36, 1] }}
           >
-            Missed calls, messy CRMs, and sites that don’t convert cost you
-            revenue every week. We build CRM automation, websites and apps, AI
-            voice and chat agents, and missed‑call recovery so leads get answered
-            and booked—without hiring ahead of growth.
+            Missed calls and messy systems cost you revenue. We build the
+            automation that answers leads and books appointments—without hiring
+            ahead of growth.
           </motion.p>
 
           <motion.div
@@ -130,7 +158,7 @@ export function Hero() {
                 />
               }
             >
-              Book discovery call
+              Book a Call
             </Button>
             <Button
               variant="outline"
@@ -142,28 +170,6 @@ export function Hero() {
               See example workflows
               <ArrowRightIcon className="size-4" aria-hidden />
             </Button>
-          </motion.div>
-
-          <motion.div
-            className="mt-14 flex flex-wrap items-center justify-center gap-2 text-xs text-muted-foreground sm:text-sm"
-            variants={{
-              hidden: { opacity: 0 },
-              show: { opacity: 1 },
-            }}
-            transition={{ duration: 0.4, delay: reduceMotion ? 0 : 0.15 }}
-          >
-            {[
-              "CRM automation",
-              "Sites & apps that convert",
-              "24/7 voice & chat agents",
-            ].map((label) => (
-              <span
-                key={label}
-                className="rounded-full border border-border/80 bg-card/80 px-3 py-1"
-              >
-                {label}
-              </span>
-            ))}
           </motion.div>
         </motion.div>
       </div>

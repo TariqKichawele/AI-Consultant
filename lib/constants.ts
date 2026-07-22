@@ -1,6 +1,5 @@
-/** Replace with your real Calendly (or other) booking URL before launch. */
 export const BOOKING_URL =
-  "https://calendly.com/placeholder/discovery" as const
+  "https://calendly.com/tariqkichawele01/consultation" as const
 
 export const SITE_NAME = "TK Operations" as const
 

@@ -27,7 +27,7 @@ function BookCallButton({ className }: { className?: string }) {
         <a href={BOOKING_URL} target="_blank" rel="noopener noreferrer" />
       }
     >
-      Book discovery call
+      Book a Call
     </Button>
   )
 }
@@ -113,7 +113,7 @@ export function SiteHeader() {
                     />
                   }
                 >
-                  Book discovery call
+                  Book a Call
                 </SheetClose>
               </nav>
             </SheetContent>

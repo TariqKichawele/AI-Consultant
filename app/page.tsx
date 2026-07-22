@@ -5,6 +5,7 @@ import { Process } from "@/components/landing/process"
 import { Services } from "@/components/landing/services"
 import { SiteFooter } from "@/components/landing/site-footer"
 import { SiteHeader } from "@/components/landing/site-header"
+import { Statement } from "@/components/landing/statement"
 import { Testimonials } from "@/components/landing/testimonials"
 
 export default function Home() {
@@ -13,6 +14,7 @@ export default function Home() {
       <SiteHeader />
       <main>
         <Hero />
+        <Statement />
         <Services />
         <Examples />
         <Process />
@@ -23,3 +25,4 @@ export default function Home() {
     </>
   )
 }
+
