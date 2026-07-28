@@ -37,7 +37,7 @@ export function SiteHeader() {
     <header className="sticky top-0 z-50 border-b border-border/80 bg-background/80 backdrop-blur-md supports-backdrop-filter:bg-background/70">
       <div className="mx-auto flex h-14 max-w-6xl items-center justify-between gap-4 px-4 sm:h-16 sm:px-6 lg:px-8">
         <a
-          href="#top"
+          href="/"
           className="flex items-center gap-2.5 text-sm font-semibold tracking-tight text-foreground sm:text-base"
         >
           <Image

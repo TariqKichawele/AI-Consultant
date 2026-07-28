@@ -2,10 +2,10 @@ import { Examples } from "@/components/landing/examples"
 import { Faq } from "@/components/landing/faq"
 import { Hero } from "@/components/landing/hero"
 import { Process } from "@/components/landing/process"
+import { SelectedWork } from "@/components/landing/selected-work"
 import { Services } from "@/components/landing/services"
 import { SiteFooter } from "@/components/landing/site-footer"
 import { SiteHeader } from "@/components/landing/site-header"
-import { Statement } from "@/components/landing/statement"
 import { Testimonials } from "@/components/landing/testimonials"
 
 export default function Home() {
@@ -14,8 +14,8 @@ export default function Home() {
       <SiteHeader />
       <main>
         <Hero />
-        <Statement />
         <Services />
+        <SelectedWork />
         <Examples />
         <Process />
         <Testimonials />

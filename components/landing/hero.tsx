@@ -6,6 +6,113 @@ import { motion, useReducedMotion } from "motion/react"
 import { Badge } from "@/components/ui/badge"
 import { Button } from "@/components/ui/button"
 import { BOOKING_URL } from "@/lib/constants"
+
+const EDGE_NODES = [
+  { x: 6, y: 22, duration: 14, dx: 6, dy: -4 },
+  { x: 14, y: 14, duration: 18, dx: 4, dy: 5 },
+  { x: 22, y: 28, duration: 16, dx: -5, dy: 3 },
+  { x: 10, y: 72, duration: 20, dx: 5, dy: -6 },
+  { x: 18, y: 84, duration: 15, dx: -3, dy: -4 },
+  { x: 78, y: 16, duration: 17, dx: -5, dy: 4 },
+  { x: 88, y: 24, duration: 19, dx: -4, dy: -5 },
+  { x: 92, y: 68, duration: 16, dx: -6, dy: 3 },
+  { x: 82, y: 80, duration: 21, dx: 4, dy: -4 },
+  { x: 70, y: 88, duration: 14, dx: 5, dy: -3 },
+] as const
+
+const EDGE_LINKS = [
+  [0, 1],
+  [1, 2],
+  [0, 2],
+  [3, 4],
+  [5, 6],
+  [7, 8],
+  [8, 9],
+  [7, 9],
+] as const
+
+function HeroEdgeNodes({ reduceMotion }: { reduceMotion: boolean | null }) {
+  return (
+    <div
+      className="absolute inset-0 opacity-[0.55] dark:opacity-[0.45]"
+      style={{
+        maskImage:
+          "radial-gradient(ellipse 52% 48% at 50% 42%, transparent 35%, black 78%)",
+        WebkitMaskImage:
+          "radial-gradient(ellipse 52% 48% at 50% 42%, transparent 35%, black 78%)",
+      }}
+    >
+      <svg
+        className="absolute inset-0 size-full text-foreground"
+        viewBox="0 0 100 100"
+        preserveAspectRatio="none"
+        fill="none"
+      >
+        {EDGE_LINKS.map(([a, b]) => {
+          const from = EDGE_NODES[a]
+          const to = EDGE_NODES[b]
+          return (
+            <motion.line
+              key={`${a}-${b}`}
+              x1={from.x}
+              y1={from.y}
+              x2={to.x}
+              y2={to.y}
+              stroke="currentColor"
+              strokeWidth={0.2}
+              vectorEffect="non-scaling-stroke"
+              initial={false}
+              animate={
+                reduceMotion
+                  ? { opacity: 0.14 }
+                  : { opacity: [0.08, 0.22, 0.08] }
+              }
+              transition={
+                reduceMotion
+                  ? undefined
+                  : {
+                      duration: 8 + ((a + b) % 4),
+                      repeat: Infinity,
+                      ease: "easeInOut",
+                      delay: a * 0.4,
+                    }
+              }
+            />
+          )
+        })}
+      </svg>
+
+      {EDGE_NODES.map((node, i) => (
+        <motion.span
+          key={i}
+          className="absolute size-1.5 -translate-x-1/2 -translate-y-1/2 rounded-full bg-foreground sm:size-2"
+          style={{ left: `${node.x}%`, top: `${node.y}%` }}
+          initial={false}
+          animate={
+            reduceMotion
+              ? { opacity: 0.28 }
+              : {
+                  opacity: [0.2, 0.5, 0.2],
+                  x: [0, node.dx, 0],
+                  y: [0, node.dy, 0],
+                }
+          }
+          transition={
+            reduceMotion
+              ? undefined
+              : {
+                  duration: node.duration,
+                  repeat: Infinity,
+                  ease: "easeInOut",
+                  delay: i * 0.35,
+                }
+          }
+        />
+      ))}
+    </div>
+  )
+}
+
 export function Hero() {
   const reduceMotion = useReducedMotion()
 
@@ -15,21 +122,36 @@ export function Hero() {
       className="relative overflow-hidden border-b border-border/60"
     >
       <div className="pointer-events-none absolute inset-0" aria-hidden>
-        {/* Soft ops grid */}
-        <div
-          className="absolute inset-0 opacity-[0.45] dark:opacity-[0.35]"
-          style={{
-            backgroundImage: `
-              linear-gradient(to right, color-mix(in oklch, var(--foreground) 8%, transparent) 1px, transparent 1px),
-              linear-gradient(to bottom, color-mix(in oklch, var(--foreground) 8%, transparent) 1px, transparent 1px)
-            `,
-            backgroundSize: "56px 56px",
-            maskImage:
-              "radial-gradient(ellipse 75% 65% at 50% 40%, black 20%, transparent 75%)",
-            WebkitMaskImage:
-              "radial-gradient(ellipse 75% 65% at 50% 40%, black 20%, transparent 75%)",
-          }}
-        />
+        {/* Soft ops grid — slow drift */}
+        <div className="absolute inset-0 overflow-hidden">
+          <motion.div
+            className="absolute inset-[-8%] opacity-[0.45] dark:opacity-[0.35]"
+            style={{
+              backgroundImage: `
+                linear-gradient(to right, color-mix(in oklch, var(--foreground) 8%, transparent) 1px, transparent 1px),
+                linear-gradient(to bottom, color-mix(in oklch, var(--foreground) 8%, transparent) 1px, transparent 1px)
+              `,
+              backgroundSize: "56px 56px",
+              maskImage:
+                "radial-gradient(ellipse 75% 65% at 50% 40%, black 20%, transparent 75%)",
+              WebkitMaskImage:
+                "radial-gradient(ellipse 75% 65% at 50% 40%, black 20%, transparent 75%)",
+            }}
+            animate={
+              reduceMotion
+                ? undefined
+                : {
+                    x: [0, 40, 0],
+                    y: [0, 20, 0],
+                  }
+            }
+            transition={{
+              duration: 22,
+              repeat: Infinity,
+              ease: "easeInOut",
+            }}
+          />
+        </div>
 
         {/* Atmospheric mesh */}
         <div className="absolute inset-0">
@@ -68,6 +190,8 @@ export function Hero() {
           <div className="absolute left-1/2 top-[42%] size-[28rem] -translate-x-1/2 -translate-y-1/2 rounded-full bg-primary/10 blur-3xl dark:bg-primary/15" />
         </div>
 
+        <HeroEdgeNodes reduceMotion={reduceMotion} />
+
         {/* Center spotlight behind copy */}
         <div
           className="absolute inset-0"
@@ -81,7 +205,7 @@ export function Hero() {
         <div className="absolute inset-0 bg-linear-to-b from-background/40 via-transparent to-background/80" />
       </div>
 
-      <div className="relative mx-auto flex max-w-6xl items-center px-4 py-20 sm:px-6 sm:py-28 lg:min-h-[70vh] lg:px-8 lg:py-40 xl:min-h-[75vh] xl:py-48">
+      <div className="relative mx-auto flex min-h-[calc(100svh-3.5rem)] max-w-6xl items-center px-4 py-20 sm:min-h-[calc(100svh-4rem)] sm:px-6 sm:py-28 lg:px-8">
         <motion.div
           className="mx-auto max-w-3xl text-center"
           initial="hidden"

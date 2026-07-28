@@ -27,12 +27,12 @@ const examples = [
     tag: "AI Voice and Chat Agents",
   },
   {
-    title: "Scattered lead notes → clean CRM pipeline",
+    title: "Slow site & clunky forms → conversion‑ready web & apps",
     before:
-      "Follow‑ups live in inboxes and sticky notes; deals stall because the CRM never matches reality.",
+      "Leads bounce off outdated pages, unclear offers, and forms that don’t connect to how you actually sell.",
     after:
-      "CRM automation logs activity, nudges next steps, and keeps records honest so your team always knows who to call.",
-    tag: "CRM Automation",
+      "A fast website or app with clear offers, clean UX, and booking, forms, and integrations that move prospects to the next step.",
+    tag: "Website and App Design and Development",
   },
 ] as const
 
