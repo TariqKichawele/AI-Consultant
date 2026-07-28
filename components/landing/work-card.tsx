@@ -22,7 +22,7 @@ type WorkCardProps = {
 
 export function WorkCard({ project, detailed = false }: WorkCardProps) {
   return (
-    <Card className="h-full transition-shadow hover:shadow-md">
+    <Card className="h-full pt-0 transition-shadow hover:shadow-md">
       <a
         href={project.href}
         target="_blank"
